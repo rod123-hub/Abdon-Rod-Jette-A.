@@ -1,17 +1,27 @@
-class Book:
-    def __init__(self, title, author, year_published):
-        self.title = title
-        self.author = author
-        self.year_published = year_published
+class Employee:
+    def __init__(self, name, position, salary):
+        self.name = name
+        self.position = position
+        self.salary = salary
     
-    def describe(self):
-        print(f"'{self.title}' by {self.author}, published in {self.year_published}.")
+    def give_raise(self, amount):
+        if amount > 0:
+            self.salary += amount
+            print(f"Salary increased by ₱{amount:.2f}. New salary: ₱{self.salary:.2f}")
+        else:
+            print("Raise amount must be positive.")
+    
+    def display_employee(self):
+        print("Employee Details:")
+        print(f"  Name    : {self.name}")
+        print(f"  Position: {self.position}")
+        print(f"  Salary  : ₱{self.salary:.2f}")
 
-book1 = Book("Pride and Prejudice", "Jane Austen", 1813)
-book2 = Book("Moby-Dick", "Herman Melville", 1851)
-book3 = Book("The Catcher in the Rye", "J.D. Salinger", 1951)
+employee = Employee("Rod Jette", "Software Engineer", 60000)
 
-# Displaying book details
-book1.describe()
-book2.describe()
-book3.describe()
+employee.display_employee()
+
+raise_amount = float(input("Enter raise amount: "))
+employee.give_raise(raise_amount)
+
+employee.display_employee()
